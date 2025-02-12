@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Appointment</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        form { max-width: 400px; margin: auto; }
+        input[type=text], input[type=number], input[type=date], input[type=time], textarea, select { width: 100%; padding: 10px; margin: 5px 0 10px 0; }
+        input[type=submit] { background-color: #4CAF50; color: white; padding: 10px; border: none; width: 100%; }
+    </style>
+</head>
+<body>
+    <h2>Book Appointment at {{ hospital }}</h2>
+    
+    <form action="/hospital/{{ hospital }}" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name"><br>
+        <label for="age">Age:</label>
+        <input type="text" id="age" name="age"><br>
+        <label for="gender">Gender:</label>
+        <input type="text" id="gender" name="gender"><br>
+        <label for="city">City:</label>
+        <input type="text" id="city" name="city"><br>
+        <label for="phone">Phone:</label>
+        <input type="text" id="phone" name="phone"><br>
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date"><br>
+        <label for="time">Time:</label>
+        <input type="time" id="time" name="time"><br>
+        <label for="reason">Reason:</label>
+        <textarea id="reason" name="reason"></textarea><br>
+        <label for="doctor">Select Doctor:</label>
+        <select id="doctor" name="doctor">
+            {% for doctor in doctors %}
+                <option value="{{ doctor }}">{{ doctor }}</option>
+            {% endfor %}
+        </select><br>
+        <input type="submit" value="Book Appointment">
+    </form>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Dashboard</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        table { width: 100%; border-collapse: collapse; }
+        table, th, td { border: 1px solid black; }
+        th, td { padding: 10px; text-align: left; }
+    </style>
+</head>
+<body>
+    <h2>Welcome, Dr. {{ name }}</h2>
+    <h3>Your Appointments</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Hospital</th>
+                <th>Patient Name</th>
+                <th>Age</th>
+                <th>Gender</th>
+                <th>City</th>
+                <th>Phone</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Reason</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for appointment in appointments %}
+                <tr>
+                    <td>{{ appointment.hospital }}</td>
+                    <td>{{ appointment.name }}</td>
+                    <td>{{ appointment.age }}</td>
+                    <td>{{ appointment.gender }}</td>
+                    <td>{{ appointment.city }}</td>
+                    <td>{{ appointment.phone }}</td>
+                    <td>{{ appointment.date }}</td>
+                    <td>{{ appointment.time }}</td>
+                    <td>{{ appointment.reason }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
