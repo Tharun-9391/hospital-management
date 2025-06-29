@@ -14,6 +14,11 @@ def write_csv(file_path, data, fieldnames):
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         writer.writerow(data)
 
+@app.route('/')
+def home():
+    return redirect(url_for('login'))
+
+
 # Route for user registration
 @app.route('/register', methods=['GET', 'POST'])
 def register():
